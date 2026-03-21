@@ -103,6 +103,7 @@ accountForm.addEventListener("submit", async (event) => {
     if (isLoggingIn) {
       await signInWithEmailAndPassword(auth, email, password);
       statusMessage.textContent = "Logged in successfully.";
+      window.location.href = "goals.html"; 
     } else {
       await createUserWithEmailAndPassword(auth, email, password);
       statusMessage.textContent = "Account created successfully.";
