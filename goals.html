@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, intial-scale=1.0" />
+	<title>MASLOG Goals</title>
+	<link rel="stylesheet" href="Goals.css" />
+</head>
+<body>
+	<div class="goals-page theme-blossom" id="goalsPage">
+		<aside class="side-menu" id="sideMenu">
+			<div class="side-menu-header">
+			<h2 class="menu-titel">Menu</h2>
+			<button class="close-btn" id="closeMenuBtn" type="button">×</button>
+		</div>
+		<div class="side-section">
+			<h3 class="section-title">Themes</h3>
+			<div class="theme-list">
+ 				<button class="theme-option active" type="button" data-theme="blossom">Blossom</button>
+          		<button class="theme-option" type="button" data-theme="sunflower">Sunflower</button>
+         		<button class="theme-option" type="button" data-theme="lavender">Lavender</button>
+         		<button class="theme-option" type="button" data-theme="rose">Rose</button>
+        	</div>
+        </div>
+        <div class="side-section">
+       		<h3 class="section-title">Pages</h3>
+        	<div class="page-list">
+          		<a class="nav-link" href="index.html">Home</a>
+        		<a class="nav-link" href="evaluation.html">Check-In</a>
+        		<a class="nav-link" href="survey.html">Survey</a>
+          		<a class="nav-link" href="advice.html">Advice</a>
+          	</div>
+        </div>
+        <div class="account-section">
+        	<a class="nav-link account-link" href="account.html">Account</a>
+        </div>
+    </aside>
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <header class="top-bar">
+    	<button class="hamburger-btn" id="openMenuBtn" type="button">☰</button>
+    	<div class="title-wrapper">
+    		<div class="title-box">🌸 MASLOG 🌼</div>
+    	</div>
+    	
+    	<div></div>
+    </header>
+    
+    <main class="goals-content">
+    	<div class="flower-decor flower-left">🌸</div>
+    	<div class="flower-decor flower-right">🌼</div>
+    	
+    	<section class="pyramid-card">
+    		<h2 class="triangle-title">Maslow Goal Pyramid</h2>
+    		<div class="pyramid-shell">
+    			<button class="triangle-layer layer-1" type="button">Self-Actualization</button>
+         		<button class="triangle-layer layer-2" type="button">Esteem</button>
+          		<button class="triangle-layer layer-3" type="button">Love &amp; Belonging</button>
+          		<button class="triangle-layer layer-4" type="button">Safety</button>
+          		<button class="triangle-layer layer-5" type="button">Physiological</button>
+          	</div>
+          </section>
+        </main>
+    </div>
+    
+    	<script src="goals.js"></script>
+    </body>
+</html>
