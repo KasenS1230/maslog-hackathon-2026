@@ -72,7 +72,7 @@ function updateFormMode() {
   submitBtn.textContent = isLoggingIn ? "Login" : "Sign Up";
   toggleFormBtn.textContent = isLoggingIn
     ? "Don’t have an account? Sign Up"
-    : "Already have an account? Login";
+    : "Already have an account? Log In";
   statusMessage.textContent = "";
 }
 
@@ -103,10 +103,11 @@ accountForm.addEventListener("submit", async (event) => {
     if (isLoggingIn) {
       await signInWithEmailAndPassword(auth, email, password);
       statusMessage.textContent = "Logged in successfully.";
-      window.location.href = "goals.html"; 
+      window.location.href = "goals.html";
     } else {
       await createUserWithEmailAndPassword(auth, email, password);
       statusMessage.textContent = "Account created successfully.";
+      window.location.href = "goals.html";
     }
   } catch (error) {
     statusMessage.textContent = error.message;

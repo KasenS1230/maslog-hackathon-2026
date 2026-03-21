@@ -136,7 +136,6 @@ body {
   font-size: 1.9rem;
   color: var(--text-main);
   background: var(--panel);
-  box-shadow: var(--shadow);
   border: 1px solid var(--soft-border);
 }
 
