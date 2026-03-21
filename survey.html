@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Survey</title>
+        <link rel="stylesheet" href="survey_styles.css">
+    </head>
+    <body>
+        <div class="container mt-5 mb-5" style="max-width: 650px;">
+            <h1>Survey</h1>
+            <p>Please answer the questions below:</p>
+            <form>
+                <!-- Q1 -->
+                <div>
+                    <label for="q1" class="form-label">
+                        You make it a point to have consistent, healthy eating routines. 
+                        <input type="range" class="form-range" id="q1" name="q1" min="1" max="5" value="3"
+                        oninput="document.getElementById('q1Value').textContent = this.value">
+                        <div class="d-flex justify-content-between text-muted" style="font-size: 12px;">
+                        <span>Strongly Disagree</span>
+                        <span>Strongly Agree</span>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div>
+                    <label for="q2" class="form-label">How easy was it to navigate our website?
+                    <input type="range" class="form-range" id="q2" name="q2" min="1" max="5" value="3"
+                        oninput="document.getElementById('q2Value').textContent = this.value">
+                        <div class="d-flex justify-content-between text-muted" style="font-size: 12px;">
+                        <span>Strongly Disagree</span>
+                        <span>Strongly Agree</span>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div>
+                    <label for="q3" class="form-label">
+                        How would you rate the quality of our customer support?
+                        <input type="range" class="form-range" id="q3" name="q3" min="1" max="5" value="3"
+                        oninput="document.getElementById('q3Value').textContent = this.value">
+                        <div class="d-flex justify-content-between text-muted" style="font-size: 12px;">
+                        <span>Strongly Disagree</span>
+                        <span>Strongly Agree</span>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div>
+                    <label for="q4" class="form-label">
+                        How likely are you to recommend us to a friend?
+                        <input type="range" class="form-range" id="q4" name="q4" min="1" max="5" value="3"
+                        oninput="document.getElementById('q4Value').textContent = this.value">
+                        <div class="d-flex justify-content-between text-muted" style="font-size: 12px;">
+                        <span>Strongly Disagree</span>
+                        <span>Strongly Agree</span>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div>
+                    <label for="q5" class="form-label">How well did our product meet your expectations? 
+                    <input type="range" class="form-range" id="q5" name="q5" min="1" max="5" value="3"
+                        oninput="document.getElementById('q5Value').textContent = this.value">
+                        <div class="d-flex justify-content-between text-muted" style="font-size: 12px;">
+                        <span>Strongly Disagree</span>
+                        <span>Strongly Agree</span>
+                    </div>
+                </div>
+
+                <div class = "cont_buttons">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="index.html" class="btn btn-secondary">Back to Home</a>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
