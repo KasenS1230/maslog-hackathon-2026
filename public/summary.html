@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MASLOG Summary</title>
+  <link rel="stylesheet" href="summary.css" />
+</head>
+<body>
+  <div class="summary-page theme-blossom" id="summaryPage">
+    <aside class="side-menu" id="sideMenu">
+      <div class="side-menu-header">
+        <h2 class="menu-title">Menu</h2>
+        <button class="close-btn" id="closeMenuBtn" type="button">×</button>
+      </div>
+
+      <div class="side-section">
+        <h3 class="section-title">Themes</h3>
+        <div class="theme-list">
+          <button class="theme-option active" type="button" data-theme="blossom">Blossom</button>
+          <button class="theme-option" type="button" data-theme="sunflower">Sunflower</button>
+          <button class="theme-option" type="button" data-theme="lavender">Lavender</button>
+          <button class="theme-option" type="button" data-theme="rose">Rose</button>
+        </div>
+      </div>
+
+      <div class="side-section">
+        <h3 class="section-title">Pages</h3>
+        <div class="page-list">
+          <a class="nav-link" href="goals.html">Goals</a>
+          <a class="nav-link" href="evaluation.html">Check-In</a>
+          <a class="nav-link" href="survey.html">Survey</a>
+          <a class="nav-link active-link" href="summary.html">Summary</a>
+        </div>
+      </div>
+
+      <div class="account-section">
+        <button class="nav-link account-link" id="accountBtn" type="button">Account</button>
+      </div>
+    </aside>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <header class="top-bar">
+      <button class="hamburger-btn" id="openMenuBtn" type="button">☰</button>
+
+      <div class="title-wrapper">
+        <div class="title-box">🌸 MASLOG 🌼</div>
+      </div>
+
+      <div></div>
+    </header>
+
+    <main class="summary-content">
+      <div class="flower-decor flower-left">🌸</div>
+      <div class="flower-decor flower-right">🌼</div>
+
+      <section class="summary-card hidden" id="authRequiredCard">
+        <h1 class="summary-title">Login Required</h1>
+        <p class="summary-subtitle">
+          You need to log in before viewing your summary.
+        </p>
+        <div class="action-row">
+          <a class="primary-link-btn" href="accounts.html">Login or Create Account</a>
+        </div>
+      </section>
+
+      <section class="summary-card hidden" id="surveyRequiredCard">
+        <h1 class="summary-title">Survey Required</h1>
+        <p class="summary-subtitle">
+          Complete the survey before viewing your summary.
+        </p>
+        <div class="action-row">
+          <a class="primary-link-btn" href="survey.html">Go to Survey</a>
+        </div>
+      </section>
+
+      <section class="summary-card hidden" id="summaryCard">
+        <h1 class="summary-title">Your Growth Summary</h1>
+        <p class="summary-subtitle">
+          Based on your survey, these are the areas that may need the most attention right now.
+        </p>
+
+        <div class="summary-block">
+          <h2 class="block-title">Recommended Focus Areas</h2>
+          <div class="focus-tags" id="focusTags"></div>
+        </div>
+
+        <div class="summary-block">
+          <h2 class="block-title">Why These Areas</h2>
+          <div class="summary-list" id="summaryList"></div>
+        </div>
+
+        <div class="summary-block">
+          <div class="customize-header">
+            <h2 class="block-title">Customize Your Focus</h2>
+            <button class="secondary-btn" id="customizeBtn" type="button">Customize</button>
+          </div>
+
+          <p class="customize-copy">
+            Adjust which categories you want to focus on. These preferences are saved separately from your survey.
+          </p>
+
+          <div class="customize-panel hidden" id="customizePanel">
+            <div class="customize-options">
+              <label class="custom-option">
+                <input type="checkbox" value="physiological" />
+                <span>Physiological Well-Being</span>
+              </label>
+
+              <label class="custom-option">
+                <input type="checkbox" value="safety" />
+                <span>Safety &amp; Stability</span>
+              </label>
+
+              <label class="custom-option">
+                <input type="checkbox" value="social" />
+                <span>Social Connection &amp; Belonging</span>
+              </label>
+
+              <label class="custom-option">
+                <input type="checkbox" value="esteem" />
+                <span>Esteem &amp; Confidence</span>
+              </label>
+            </div>
+
+            <div class="action-row">
+              <button class="primary-btn" id="savePreferencesBtn" type="button">Save Preferences</button>
+            </div>
+          </div>
+        </div>
+
+        <p class="status-message" id="summaryStatus"></p>
+      </section>
+    </main>
+
+    <div class="account-modal-overlay" id="accountModalOverlay">
+      <div class="account-modal">
+        <div class="account-modal-header">
+          <h3 class="account-modal-title">Your Account</h3>
+          <button class="account-modal-close" id="accountModalClose" type="button">×</button>
+        </div>
+
+        <p class="account-email-label">Signed in as</p>
+        <p class="account-email" id="accountEmail">Loading...</p>
+
+        <div class="account-modal-actions">
+          <button class="account-action-btn secondary-account-btn" id="logoutBtn" type="button">
+            Logout
+          </button>
+
+          <a class="account-action-btn primary-account-btn" href="goals.html">
+            View Goals
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="summary.js"></script>
+</body>
+</html>

@@ -110,7 +110,7 @@ accountForm.addEventListener("submit", async (event) => {
       window.location.href = "goals.html";
     }
   } catch (error) {
-    statusMessage.textContent = error.message;
+    statusMessage.textContent = "Email or password is incorrect.";
   }
 });
 
