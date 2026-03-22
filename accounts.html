@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, intial-scale=1.0" />
+	<title>MASLOG Account</title>
+	<link rel="stylesheet" href="accounts.css" />
+</head>
+<body>
+	<div class="account-page theme-blossom" id="accountPage">
+    	<aside class="side-menu" id="sideMenu">
+    		<div class="side-menu-header">
+        		<h2 class="menu-title">Menu</h2>
+        		<button class="close-btn" id="closeMenuBtn" type="button">×</button>
+    		</div>
+
+    		<div class="side-section">
+        		<h3 class="section-title">Themes</h3>
+        		<div class="theme-list">
+          			<button class="theme-option active" type="button" data-theme="blossom">Blossom</button>
+          			<button class="theme-option" type="button" data-theme="sunflower">Sunflower</button>
+          			<button class="theme-option" type="button" data-theme="lavender">Lavender</button>
+          			<button class="theme-option" type="button" data-theme="rose">Rose</button>
+        		</div>
+      		</div>
+      	
+    		<div class="side-section">
+    			<h3 class="section-title">Pages</h3>
+        		<div class="page-list">
+          			<a class="nav-link" href="index.html">Home</a>
+          			<a class="nav-link" href="evaluation.html">Check-In</a>
+          			<a class="nav-link" href="survey.html">Survey</a>
+          			<a class="nav-link" href="advice.html">Advice</a>
+        		</div>
+      		</div>
+      	
+      		<div class="account-section">
+        		<a class="nav-link account-link active-link" href="accounts.html">Account</a>
+      		</div>
+		</aside>
+		<div class="menu-overlay" id="menuOverlay"></div>
+		<header class="top-bar">
+			<button class="hamburger-btn" id="openMenuBtn" type="button"></button>
+			<div class="title-wrapper">
+        		<div class="title-box">🌸 MASLOG 🌼</div>
+      		</div>
+      		<div></div>
+      	</header>
+      	<main class="account-content">
+
+      		<section class="account-card">
+        		<h1 class="account-title" id="formTitle">Log In</h1>
+        		<p class="account-subtitle" id="formSubtitle">
+         			 Welcome back.
+        		</p>
+        		
+        		<form class="account-form" id="accountForm">
+          			<label class="field-group">
+            			<span>Email</span>
+            			<input type="email" id="email" placeholder="Enter your email" required />
+          			</label>
+          			
+          			<label class="field-group">
+            			<span>Password</span>
+            			<input type="password" id="password" placeholder="Enter your password" required />
+          			</label>
+          			
+         			<button class="submit-btn" id="submitBtn" type="submit">Login</button>
+        		</form>
+        		
+
+				<button class="toggle-form-btn" id="toggleFormBtn" type="button">
+          			Don’t have an account? Sign Up
+				</button>
+				
+				<p class="status-message" id="statusMessage"></p>
+      		</section>
+    	</main>
+  	</div>
+  	<script type="module" src="accounts.js"></script>
+</body>
+</html>

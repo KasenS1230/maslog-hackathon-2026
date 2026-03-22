@@ -2,6 +2,44 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.box1 {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+    position: absolute;
+    top: 0;
+    left: 1000px;
+    right: 0px; 
+    bottom: 0px;
+
+    margin: 30px auto; 
+
+    width: 25px; 
+    height: 10px; 
+    background-color: rgb(255, 255, 255); 
+
+}
+
+.button-container button {
+      background-color: transparent;
+      
+     
+      border-color: transparent;
+      padding: 10px 25px;
+      cursor: pointer;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    .button-container button:hover {
+      border-color: rgb(255, 255, 255);
+      transform: scale(1.05);
+    }
+
 header {
     display: flex;
     position: fixed; 
