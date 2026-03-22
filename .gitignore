@@ -9,3 +9,5 @@ node_modules
 .firebase/
 firebase-debug.log*.DS_Store
 .DS_Store
+node.js
+.node.js
