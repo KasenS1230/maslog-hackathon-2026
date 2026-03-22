@@ -1,104 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, intial-scale=1.0" />
 	<title>MASLOG Goals</title>
 	<link rel="stylesheet" href="Goals.css" />
 </head>
+
 <body>
 	<div class="goals-page theme-blossom" id="goalsPage">
 		<aside class="side-menu" id="sideMenu">
 			<div class="side-menu-header">
-			<h2 class="menu-titel">Menu</h2>
-			<button class="close-btn" id="closeMenuBtn" type="button">×</button>
-		</div>
-		<div class="side-section">
-			<h3 class="section-title">Themes</h3>
-			<div class="theme-list">
- 				<button class="theme-option active" type="button" data-theme="blossom">Blossom</button>
-          		<button class="theme-option" type="button" data-theme="sunflower">Sunflower</button>
-         		<button class="theme-option" type="button" data-theme="lavender">Lavender</button>
-         		<button class="theme-option" type="button" data-theme="rose">Rose</button>
-        	</div>
-        </div>
-        <div class="side-section">
-       		<h3 class="section-title">Pages</h3>
-        	<div class="page-list">
-          		<a class="nav-link" href="index.html">Home</a>
-        		<a class="nav-link" href="evaluation.html">Check-In</a>
-        		<a class="nav-link" href="survey.html">Survey</a>
-          		<a class="nav-link" href="advice.html">Advice</a>
-          	</div>
-        </div>
-        <div class="account-section">
-        	<a class="nav-link account-link" href="account.html">Account</a>
-        </div>
-    </aside>
-    <div class="menu-overlay" id="menuOverlay"></div>
-    <header class="top-bar">
-    	<button class="hamburger-btn" id="openMenuBtn" type="button">☰</button>
-    	<div class="title-wrapper">
-    		<div class="title-box">🌸 MASLOG 🌼</div>
-    	</div>	
-    </header>
-    
+				<h2 class="menu-titel">Menu</h2>
+				<button class="close-btn" id="closeMenuBtn" type="button">×</button>
+			</div>
+			<div class="side-section">
+				<h3 class="section-title">Themes</h3>
+				<div class="theme-list">
+					<button class="theme-option active" type="button" data-theme="blossom">Blossom</button>
+					<button class="theme-option" type="button" data-theme="sunflower">Sunflower</button>
+					<button class="theme-option" type="button" data-theme="lavender">Lavender</button>
+					<button class="theme-option" type="button" data-theme="rose">Rose</button>
+				</div>
+			</div>
+			<div class="side-section">
+				<h3 class="section-title">Pages</h3>
+				<div class="page-list">
+					<a class="nav-link" href="index.html">Home</a>
+					<a class="nav-link" href="evaluation.html">Check-In</a>
+					<a class="nav-link" href="survey.html">Survey</a>
+					<a class="nav-link" href="advice.html">Advice</a>
+				</div>
+			</div>
+			<div class="account-section">
+				<a class="nav-link account-link" href="account.html">Account</a>
+			</div>
+		</aside>
+		<div class="menu-overlay" id="menuOverlay"></div>
+		<header class="top-bar">
+			<button class="hamburger-btn" id="openMenuBtn" type="button">☰</button>
+			<div class="title-wrapper">
+				<div class="title-box">🌸 MASLOG 🌼</div>
+			</div>
+		</header>
 
-    <main class="goals-content">
-    	<div class="flower-decor flower-left">🌸</div>
-    	<div class="flower-decor flower-right">🌼</div>
-    	
-		<!--Pyramid buttons-->
-    	<section class="pyramid-card">
-    		<h2 class="triangle-title">Maslow Goal Pyramid</h2>
-    		<div class="pyramid-shell">
-    			<button class="triangle-layer layer-1" type="button">Self-Actualization</button>
-         		<button class="triangle-layer layer-2" type="button">Esteem</button>
-          		<button class="triangle-layer layer-3" type="button">Love &amp; Belonging</button>
-          		<button class="triangle-layer layer-4" type="button">Safety</button>
-          		<button class="triangle-layer layer-5" type="button">Physiological</button>
-          	</div>
-          </section>
-        </main>
-    </div>
 
-	<div class="modal-container">
+		<main class="goals-content">
+			<div class="flower-decor flower-left">🌸</div>
+			<div class="flower-decor flower-right">🌼</div>
 
-    <div class="box_layer1">
-        <span class="close-btn" onclick="closeAll()">+</span>
-        <h3>Self-Actualization</h3>
-        <p>The realization or fulfillment of one's full potential, talents, and capabilities.</p>
-    </div>
+			<!--Pyramid buttons-->
+			<section class="pyramid-card">
+				<h2 class="triangle-title">Maslow Goal Pyramid</h2>
+				<div class="pyramid-shell">
+					<button class="triangle-layer layer-1" type="button"onclick="toggleSelf()">Self-Actualization</button>
+					<button class="triangle-layer layer-2" type="button" onclick="toggleEst()">Esteem</button>
+					<button class="triangle-layer layer-3" type="button" onclick="toggleLB()">Love &amp; Belonging</button>
+					<button class="triangle-layer layer-4" type="button" onclick="toggleSafe()">Safety</button>
+					<button class="triangle-layer layer-5" type="button" onclick="togglePhys()">Physiological</button>
+				</div>
+			</section>
 
-    <div class="box_layer2">
-        <span class="close-btn" onclick="closeAll()">+</span>
-        <h3>Esteem</h3>
-        <p>Respect and/or admiration for oneself and others.</p>
-    </div>
 
-    <div class="box_layer3">
-        <span class="close-btn" onclick="closeAll()">+</span>
-        <h3>Love & Belonging</h3>
-        <p>The need for interpersonal relationships and social connection.</p>
-    </div>
+			<div id="Box_Self" class="Box_Self">
+				<button class="close-btn" onclick="toggleCloseSelf()">&times;</button>
+				<h3>Self-Actualization</h3>
+				<p>The realization or fulfillment.</p>
+			</div>
 
-    <div class="box_layer4">
-        <span class="close-btn" onclick="closeAll()">+</span>
-        <h3>Safety</h3>
-        <p>The desire for security, stability, and survival.</p>
-    </div>
+			<div id="Box_Esteem" class="Box_Esteem">
+				<button class="close-btn" onclick="toggleCloseEst()">&times;</button>
+				<h3>Esteem</h3>
+				<p>Respect and/or admiration for oneself and others.</p>
+			</div>
 
-    <div class="box_layer5">
-        <span class="close-btn" onclick="closeAll()">+</span>
-        <h3>Physiological</h3>
-        <p>The basic human needs for survival.</p>
-    </div>
+			<div id="Box_LB" class="Box_LB">
+				<button class="close-btn" onclick="toggleCloseLB()">&times;</button>
+				<h3>Love and Belonging</h3>
+				<p>The need for interpersonal relationships and social connection.</p>
+			</div>
 
-</div>
-    
-    
-    
-    
-    	<script src="goals.js"></script>
-    </body>
+			<div id="Box_Safe" class="Box_Safe">
+				<button class="close-btn" onclick="toggleCloseSafe()">&times;</button>
+				<h3>Safety</h3>
+				<p>The desire for security, stability, and survival.</p>
+			</div>
+
+			<div id="Box_Phys" class = "Box_Phys">
+				<button class="close-btn" onclick="toggleClosePhys()">&times;</button>
+				<h3>Physiological</h3>
+				<p>The basic needs like food, water, sleep, etc...</p>
+			</div>
+		</main>
+	</div>
+
+	<script src="goals.js"></script>
+</body>
+
 </html>
