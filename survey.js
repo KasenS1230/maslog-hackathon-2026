@@ -31,6 +31,11 @@ const sideMenu = document.getElementById("sideMenu");
 const openMenuBtn = document.getElementById("openMenuBtn");
 const closeMenuBtn = document.getElementById("closeMenuBtn");
 const menuOverlay = document.getElementById("menuOverlay");
+const accountBtn = document.getElementById("accountBtn");
+const accountModalOverlay = document.getElementById("accountModalOverlay");
+const accountModalClose = document.getElementById("accountModalClose");
+const accountEmail = document.getElementById("accountEmail");
+const logoutBtn = document.getElementById("logoutBtn");
 const themeButtons = document.querySelectorAll(".theme-option");
 
 const authRequiredCard = document.getElementById("authRequiredCard");
@@ -146,6 +151,50 @@ async function loadSurveyState(user) {
   fillSurveyUI(data.answers || {});
   showOnly(existingSurveyCard);
 }
+
+function openAccountModal() {
+  if (currentUser) {
+    accountEmail.textContent =
+      currentUser.email || "Unknown";
+  }
+
+  accountModalOverlay.classList.add("show");
+}
+
+function closeAccountModal() {
+  accountModalOverlay.classList.remove("show");
+}
+
+accountBtn.addEventListener("click", () => {
+  if (!currentUser) {
+    window.location.href = "accounts.html";
+    return;
+  }
+
+  openAccountModal();
+});
+
+accountModalClose.addEventListener(
+  "click",
+  closeAccountModal
+);
+
+accountModalOverlay.addEventListener(
+  "click",
+  (event) => {
+    if (event.target === accountModalOverlay) {
+      closeAccountModal();
+    }
+  }
+);
+
+logoutBtn.addEventListener(
+  "click",
+  async () => {
+    await auth.signOut();
+    window.location.href = "accounts.html";
+  }
+);
 
 openMenuBtn.addEventListener("click", openMenu);
 closeMenuBtn.addEventListener("click", closeMenu);

@@ -35,7 +35,9 @@
      		</div>
 
       		<div class="account-section">
-       			<a class="nav-link account-link" href="accounts.html">Account</a>
+       			<button class="nav-link account-link" id="accountBtn" type="button">
+  					Account
+				</button>
       		</div>
     	</aside>
 
@@ -226,7 +228,47 @@
 	</section>
 </main>
 </div>
-
+<div class="account-modal-overlay" id="accountModalOverlay">
+	<div class="account-modal">
+    <div class="account-modal-header">
+      	<h3 class="account-modal-title">
+        	Your Account
+      	</h3>
+      	<button
+        	class="account-modal-close"
+        	id="accountModalClose"
+        	type="button"
+      	>
+        	×
+      	</button>
+    	</div>
+    	<p class="account-email-label">
+      		Signed in as
+    	</p>
+    	<p
+      		class="account-email"
+      		id="accountEmail"
+    	>
+      		Loading...
+    	</p>
+    	<div class="account-modal-actions">
+      		<button
+        		class="account-action-btn secondary-account-btn"
+        		id="logoutBtn"
+        		type="button"
+      		>
+        		Logout
+      		</button>
+			<a
+  				class="account-action-btn primary-account-btn"
+  				id="viewGoalsBtn"
+  				href="goals.html"
+			>
+  				View Goals
+			</a>
+		</div>
+	</div>
+</div>
 	<script type="module" src="survey.js"></script>
 </body>
 </html>
