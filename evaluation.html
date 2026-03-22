@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MASLOG Check-In</title>
+  <link rel="stylesheet" href="evaluation.css" />
+</head>
+<body>
+  <div class="evaluation-page theme-blossom" id="evaluationPage">
+    <aside class="side-menu" id="sideMenu">
+      <div class="side-menu-header">
+        <h2 class="menu-title">Menu</h2>
+        <button class="close-btn" id="closeMenuBtn" type="button">×</button>
+      </div>
+
+      <div class="side-section">
+        <h3 class="section-title">Themes</h3>
+        <div class="theme-list">
+          <button class="theme-option active" type="button" data-theme="blossom">Blossom</button>
+          <button class="theme-option" type="button" data-theme="sunflower">Sunflower</button>
+          <button class="theme-option" type="button" data-theme="lavender">Lavender</button>
+          <button class="theme-option" type="button" data-theme="rose">Rose</button>
+        </div>
+      </div>
+
+      <div class="side-section">
+        <h3 class="section-title">Pages</h3>
+        <div class="page-list">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link active-link" href="evaluation.html">Check-In</a>
+          <a class="nav-link" href="survey.html">Survey</a>
+          <a class="nav-link" href="summary.html">Summary</a>
+        </div>
+      </div>
+
+      <div class="account-section">
+        <button class="nav-link account-link" id="accountBtn" type="button">Account</button>
+      </div>
+    </aside>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <header class="top-bar">
+      <button class="hamburger-btn" id="openMenuBtn" type="button">☰</button>
+      <div class="title-wrapper">
+        <div class="title-box">🌸 MASLOG 🌼</div>
+      </div>
+      <div></div>
+    </header>
+
+    <main class="evaluation-content">
+      <div class="flower-decor flower-left">🌸</div>
+      <div class="flower-decor flower-right">🌼</div>
+
+      <section class="evaluation-card hidden" id="authRequiredCard">
+        <h1 class="evaluation-title">Login Required</h1>
+        <p class="evaluation-subtitle">Log in to complete your daily check-in.</p>
+        <div class="action-row">
+          <a class="primary-link-btn" href="accounts.html">Login or Create Account</a>
+        </div>
+      </section>
+
+      <section class="evaluation-card hidden" id="summaryRequiredCard">
+        <h1 class="evaluation-title">Summary Required</h1>
+        <p class="evaluation-subtitle">
+          You need survey and summary data before check-ins can be personalized.
+        </p>
+        <div class="action-row">
+          <a class="primary-link-btn" href="summary.html">Go to Summary</a>
+        </div>
+      </section>
+
+      <section class="evaluation-card hidden" id="checkinCard">
+        <h1 class="evaluation-title">Daily Check-In</h1>
+        <p class="evaluation-subtitle">
+          Your activities today are based on the categories you chose to focus on.
+        </p>
+
+        <div id="checkinList" class="checkin-list"></div>
+
+        <div class="action-row">
+          <button class="primary-btn" id="saveCheckinBtn" type="button">Save Daily Check-In</button>
+        </div>
+
+        <p class="status-message" id="checkinStatus"></p>
+      </section>
+    </main>
+
+    <div class="account-modal-overlay" id="accountModalOverlay">
+      <div class="account-modal">
+        <div class="account-modal-header">
+          <h3 class="account-modal-title">Your Account</h3>
+          <button class="account-modal-close" id="accountModalClose" type="button">×</button>
+        </div>
+
+        <p class="account-email-label">Signed in as</p>
+        <p class="account-email" id="accountEmail">Loading...</p>
+
+        <div class="account-modal-actions">
+          <button class="account-action-btn secondary-account-btn" id="logoutBtn" type="button">
+            Logout
+          </button>
+          <a class="account-action-btn primary-account-btn" href="goals.html">View Goals</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="evaluation.js"></script>
+</body>
+</html>
