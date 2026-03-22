@@ -56,6 +56,7 @@ if (savedTheme && themeClasses.includes(`theme-${savedTheme}`)) {
 function toggleSelf(){
   boxSelf.style.opacity = "1";
   boxSelf.style.visibility = "visible";
+  boxSelf.style.transition = "all 0.5s ease-in";
 }
 
 function toggleCloseSelf(){
@@ -66,6 +67,7 @@ function toggleCloseSelf(){
 function toggleEst(){
   boxEst.style.opacity = "1";
   boxEst.style.visibility = "visible";
+  boxEst.style.transition = "all 0.5s ease-in";
 }
 
 function toggleCloseEst(){
@@ -76,6 +78,7 @@ function toggleCloseEst(){
 function toggleLB(){
   boxLB.style.opacity = "1";
   boxLB.style.visibility = "visible";
+  boxLB.style.transition = "all 0.5s ease-in";
 }
 
 function toggleCloseLB(){
@@ -86,6 +89,7 @@ function toggleCloseLB(){
 function toggleSafe(){
   boxSafe.style.opacity = "1";
   boxSafe.style.visibility = "visible";
+  boxSafe.style.transition = "all 0.5s ease-in";
 }
 
 function toggleCloseSafe(){
@@ -96,6 +100,7 @@ function toggleCloseSafe(){
 function togglePhys(){
   boxPhys.style.opacity = "1";
   boxPhys.style.visibility = "visible";
+  boxPhys.style.transition = "all 0.5s ease-in";
 }
 
 function toggleClosePhys(){
