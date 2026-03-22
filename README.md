@@ -14,7 +14,7 @@ Using American psychologist Maslow's Hierarchy of Needs, our goal is to utilize 
 - Windows
 
 # Important Links
-- References:
+Reference(s):
 - https://scholarlypublishingcollective.org/uip/ajp/article-abstract/126/2/155/258006/Maslow-and-the-Motivation-Hierarchy-Measuring
 
 # How to Run Dev and Test Environment
