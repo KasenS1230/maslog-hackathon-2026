@@ -1,3 +1,5 @@
+//initializing firebase
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import {
   getAuth,
@@ -47,6 +49,7 @@ const checkinList = document.getElementById("checkinList");
 const saveCheckinBtn = document.getElementById("saveCheckinBtn");
 const checkinStatus = document.getElementById("checkinStatus");
 
+//themes
 const themeClasses = [
   "theme-blossom",
   "theme-sunflower",
@@ -58,6 +61,7 @@ let currentUser = null;
 let selectedCategories = [];
 let selectedRatings = {};
 
+//categories for firebase data
 const categoryMeta = {
   physiological: {
     title: "Physiological Well-Being",
@@ -81,16 +85,21 @@ const categoryMeta = {
   },
 };
 
+//opening menu function
 function openMenu() {
   sideMenu.classList.add("open");
   menuOverlay.classList.add("show");
 }
 
+
+//closing menu function
 function closeMenu() {
   sideMenu.classList.remove("open");
   menuOverlay.classList.remove("show");
 }
 
+
+//allows user to set theme
 function setTheme(themeName) {
   evaluationPage.classList.remove(...themeClasses);
   evaluationPage.classList.add(`theme-${themeName}`);
@@ -102,12 +111,16 @@ function setTheme(themeName) {
   localStorage.setItem("maslogTheme", themeName);
 }
 
+//opens account settings
+
 function openAccountModal() {
   if (currentUser) {
     accountEmail.textContent = currentUser.email || "No email available";
   }
   accountModalOverlay.classList.add("show");
 }
+
+//closes account settings
 
 function closeAccountModal() {
   accountModalOverlay.classList.remove("show");
@@ -130,6 +143,8 @@ function dayDiffFromISO(prevDateStr, newDateStr) {
   const diffMs = curr - prev;
   return Math.round(diffMs / 86400000);
 }
+
+//rating code
 
 function renderCheckins(categories, existingDailyData = {}) {
   checkinList.innerHTML = "";
@@ -255,6 +270,8 @@ function calculateUpdatedStreaks(previousStreaks = {}, previousRatings = {}, cur
 
   return nextStreaks;
 }
+
+//daily streak code
 
 function buildRewardsFromStreaks(streaks) {
   const rewards = {};
