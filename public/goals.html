@@ -1,101 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, intial-scale=1.0" />
-	<title>MASLOG Goals</title>
-	<link rel="stylesheet" href="Goals.css" />
+  	<meta charset="UTF-8" />
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  	<title>MASLOG Goals</title>
+  	<link rel="stylesheet" href="Goals.css" />
 </head>
-
 <body>
-	<div class="goals-page theme-blossom" id="goalsPage">
-		<aside class="side-menu" id="sideMenu">
-			<div class="side-menu-header">
-				<h2 class="menu-titel">Menu</h2>
-				<button class="close-btn" id="closeMenuBtn" type="button">×</button>
-			</div>
-			<div class="side-section">
-				<h3 class="section-title">Themes</h3>
-				<div class="theme-list">
-					<button class="theme-option active" type="button" data-theme="blossom">Blossom</button>
-					<button class="theme-option" type="button" data-theme="sunflower">Sunflower</button>
-					<button class="theme-option" type="button" data-theme="lavender">Lavender</button>
-					<button class="theme-option" type="button" data-theme="rose">Rose</button>
-				</div>
-			</div>
-			<div class="side-section">
-				<h3 class="section-title">Pages</h3>
-				<div class="page-list">
-					<a class="nav-link" href="goals.html">Goals</a>
-					<a class="nav-link" href="evaluation.html">Check-In</a>
-					<a class="nav-link" href="survey.html">Survey</a>
-					<a class="nav-link" href="advice.html">Advice</a>
-				</div>
-			</div>
-			<div class="account-section">
-				<a class="nav-link account-link" href="account.html">Account</a>
-			</div>
-		</aside>
-		<div class="menu-overlay" id="menuOverlay"></div>
-		<header class="top-bar">
-			<button class="hamburger-btn" id="openMenuBtn" type="button">☰</button>
-			<div class="title-wrapper">
-				<div class="title-box">🌸 MASLOG 🌼</div>
-			</div>
-		</header>
+  <div class="goals-page theme-blossom" id="goalsPage">
+    <aside class="side-menu" id="sideMenu">
+      <div class="side-menu-header">
+        <h2 class="menu-title">Menu</h2>
+        <button class="close-btn" id="closeMenuBtn" type="button">×</button>
+      </div>
 
+      <div class="side-section">
+        <h3 class="section-title">Themes</h3>
+        <div class="theme-list">
+          <button class="theme-option active" type="button" data-theme="blossom">Blossom</button>
+          <button class="theme-option" type="button" data-theme="sunflower">Sunflower</button>
+          <button class="theme-option" type="button" data-theme="lavender">Lavender</button>
+          <button class="theme-option" type="button" data-theme="rose">Rose</button>
+        </div>
+      </div>
 
-		<main class="goals-content">
-			<div class="flower-decor flower-left">🌸</div>
-			<div class="flower-decor flower-right">🌼</div>
+      <div class="side-section">
+        <h3 class="section-title">Pages</h3>
+        <div class="page-list">
+          <a class="nav-link active-link" href="goals.html">Goals</a>
+          <a class="nav-link" href="evaluation.html">Check-In</a>
+          <a class="nav-link" href="survey.html">Survey</a>
+          <a class="nav-link" href="summary.html">Summary</a>
+        </div>
+      </div>
 
-			<!--Pyramid buttons-->
-			<section class="pyramid-card">
-				<h2 class="triangle-title">Maslow Goal Pyramid</h2>
-				<div class="pyramid-shell">
-					<button class="triangle-layer layer-1" type="button"onclick="toggleSelf()">Self-Actualization</button>
-					<button class="triangle-layer layer-2" type="button" onclick="toggleEst()">Esteem</button>
-					<button class="triangle-layer layer-3" type="button" onclick="toggleLB()">Love &amp; Belonging</button>
-					<button class="triangle-layer layer-4" type="button" onclick="toggleSafe()">Safety</button>
-					<button class="triangle-layer layer-5" type="button" onclick="togglePhys()">Physiological</button>
-				</div>
-			</section>
+      <div class="account-section">
+        <button class="nav-link account-link" id="accountBtn" type="button">Account</button>
+      </div>
+    </aside>
 
+    <div class="menu-overlay" id="menuOverlay"></div>
 
-			<div id="Box_Self" class="Box_Self">
-				<button class="close-btn" onclick="toggleCloseSelf()">&times;</button>
-				<h3>Self-Actualization</h3>
-				<p>The realization or fulfillment.</p>
-			</div>
+    <header class="top-bar">
+      <button class="hamburger-btn" id="openMenuBtn" type="button">☰</button>
 
-			<div id="Box_Esteem" class="Box_Esteem">
-				<button class="close-btn" onclick="toggleCloseEst()">&times;</button>
-				<h3>Esteem</h3>
-				<p>Respect and/or admiration for oneself and others.</p>
-			</div>
+      <div class="title-wrapper">
+        <div class="title-box">🌸 MASLOG 🌼</div>
+      </div>
 
-			<div id="Box_LB" class="Box_LB">
-				<button class="close-btn" onclick="toggleCloseLB()">&times;</button>
-				<h3>Love and Belonging</h3>
-				<p>The need for interpersonal relationships and social connection.</p>
-			</div>
+      <div></div>
+    </header>
 
-			<div id="Box_Safe" class="Box_Safe">
-				<button class="close-btn" onclick="toggleCloseSafe()">&times;</button>
-				<h3>Safety</h3>
-				<p>The desire for security, stability, and survival.</p>
-			</div>
+    <main class="goals-content">
 
-			<div id="Box_Phys" class = "Box_Phys">
-				<button class="close-btn" onclick="toggleClosePhys()">&times;</button>
-				<h3>Physiological</h3>
-				<p>The basic needs like food, water, sleep, etc...</p>
-			</div>
-		</main>
-	</div>
+      <section class="pyramid-card hidden" id="authRequiredCard">
+        <h2 class="triangle-title">Login Required</h2>
+        <p class="center-copy">
+          You must be logged in to view your goals.
+        </p>
+        <div class="auth-login-wrapper">
+          <a class="auth-login-btn" href="accounts.html">Login or Create Account</a>
+        </div>
+      </section>
 
-	<script src="goals.js"></script>
+      <section class="pyramid-card hidden" id="summaryRequiredCard">
+        <h2 class="triangle-title">Summary Required</h2>
+        <p class="center-copy">
+          Complete your survey and summary setup before viewing your personalized goals pyramid.
+        </p>
+        <div class="auth-login-wrapper">
+          <a class="auth-login-btn" href="summary.html">Go to Summary</a>
+        </div>
+      </section>
+
+      <section class="pyramid-card hidden" id="goalsCard">
+        <h2 class="triangle-title">Maslow Goal Pyramid</h2>
+
+        <div class="pyramid-shell">
+          <button class="triangle-layer layer-1 default-state" type="button" data-category="self">
+            <span class="gold-star">★</span>
+            <span class="triangle-label">Self-Actualization</span>
+          </button>
+
+          <button class="triangle-layer layer-2 default-state" type="button" data-category="esteem">
+            <span class="gold-star">★</span>
+            <span class="triangle-label">Esteem</span>
+          </button>
+
+          <button class="triangle-layer layer-3 default-state" type="button" data-category="social">
+            <span class="gold-star">★</span>
+            <span class="triangle-label">Love &amp; Belonging</span>
+          </button>
+
+          <button class="triangle-layer layer-4 default-state" type="button" data-category="safety">
+            <span class="gold-star">★</span>
+            <span class="triangle-label">Safety</span>
+          </button>
+
+          <button class="triangle-layer layer-5 default-state" type="button" data-category="physiological">
+            <span class="gold-star">★</span>
+            <span class="triangle-label">Physiological</span>
+          </button>
+        </div>
+
+        <section class="detail-card" id="detailCard">
+          <div class="detail-header">
+            <div>
+              <h3 class="detail-title" id="detailTitle">Select a category</h3>
+              <p class="detail-subtitle" id="detailSubtitle">
+                Tap a pyramid layer to see what it means, how you're doing, and how to improve it.
+              </p>
+            </div>
+          </div>
+
+          <div class="detail-status-row" id="detailStatusRow"></div>
+
+          <div class="detail-block">
+            <h4>What this category means</h4>
+            <p id="detailMeaning"></p>
+          </div>
+
+          <div class="detail-block">
+            <h4>How to improve this area</h4>
+            <ul id="detailImproveList"></ul>
+          </div>
+
+          <div class="detail-block">
+            <h4>Current progress</h4>
+            <p id="detailProgress"></p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div class="account-modal-overlay" id="accountModalOverlay">
+      <div class="account-modal">
+        <div class="account-modal-header">
+          <h3 class="account-modal-title">Your Account</h3>
+          <button class="account-modal-close" id="accountModalClose" type="button">×</button>
+        </div>
+
+        <p class="account-email-label">Signed in as</p>
+        <p class="account-email" id="accountEmail">Loading...</p>
+
+        <div class="account-modal-actions">
+          <button class="account-action-btn secondary-account-btn" id="logoutBtn" type="button">
+            Logout
+          </button>
+
+          <a class="account-action-btn primary-account-btn" href="goals.html">
+            View Goals
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="celebration-overlay" id="celebrationOverlay">
+      <div class="celebration-card">
+        <div class="celebration-burst">
+          <span>✨</span><span>🌸</span><span>⭐</span><span>🎉</span><span>🌼</span>
+        </div>
+        <h2>Triangle Complete!</h2>
+        <p>
+          You earned gold stars in all four foundational categories below Self-Actualization.
+        </p>
+        <p>
+          Thank you for using MASLOG. You completed the full triangle, and you can absolutely keep using the app to maintain and grow even more.
+        </p>
+        <button class="auth-login-btn" id="closeCelebrationBtn" type="button">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="goals.js"></script>
 </body>
-
 </html>

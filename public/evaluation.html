@@ -27,7 +27,7 @@
       <div class="side-section">
         <h3 class="section-title">Pages</h3>
         <div class="page-list">
-          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="goals.html">Goals</a>
           <a class="nav-link active-link" href="evaluation.html">Check-In</a>
           <a class="nav-link" href="survey.html">Survey</a>
           <a class="nav-link" href="summary.html">Summary</a>
@@ -50,8 +50,6 @@
     </header>
 
     <main class="evaluation-content">
-      <div class="flower-decor flower-left">🌸</div>
-      <div class="flower-decor flower-right">🌼</div>
 
       <section class="evaluation-card hidden" id="authRequiredCard">
         <h1 class="evaluation-title">Login Required</h1>
@@ -64,7 +62,7 @@
       <section class="evaluation-card hidden" id="summaryRequiredCard">
         <h1 class="evaluation-title">Summary Required</h1>
         <p class="evaluation-subtitle">
-          You need survey and summary data before check-ins can be personalized.
+          You need summary data before check-ins can be personalized.
         </p>
         <div class="action-row">
           <a class="primary-link-btn" href="summary.html">Go to Summary</a>
@@ -76,6 +74,14 @@
         <p class="evaluation-subtitle">
           Your activities today are based on the categories you chose to focus on.
         </p>
+
+        <div class="top-actions-row">
+          <div class="last-checkin-box" id="lastCheckinBox">
+            Last check-in: <span id="lastCheckinDate">None yet</span>
+          </div>
+
+          <a class="primary-link-btn goals-link-btn" href="goals.html">Go to Goals</a>
+        </div>
 
         <div id="checkinList" class="checkin-list"></div>
 

@@ -1,5 +1,3 @@
-//initializing firebase
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import {
   getAuth,
@@ -48,8 +46,8 @@ const checkinCard = document.getElementById("checkinCard");
 const checkinList = document.getElementById("checkinList");
 const saveCheckinBtn = document.getElementById("saveCheckinBtn");
 const checkinStatus = document.getElementById("checkinStatus");
+const lastCheckinDate = document.getElementById("lastCheckinDate");
 
-//themes
 const themeClasses = [
   "theme-blossom",
   "theme-sunflower",
@@ -59,9 +57,8 @@ const themeClasses = [
 
 let currentUser = null;
 let selectedCategories = [];
-let selectedRatings = {};
+let selectedCompletion = {};
 
-//categories for firebase data
 const categoryMeta = {
   physiological: {
     title: "Physiological Well-Being",
@@ -85,21 +82,16 @@ const categoryMeta = {
   },
 };
 
-//opening menu function
 function openMenu() {
   sideMenu.classList.add("open");
   menuOverlay.classList.add("show");
 }
 
-
-//closing menu function
 function closeMenu() {
   sideMenu.classList.remove("open");
   menuOverlay.classList.remove("show");
 }
 
-
-//allows user to set theme
 function setTheme(themeName) {
   evaluationPage.classList.remove(...themeClasses);
   evaluationPage.classList.add(`theme-${themeName}`);
@@ -111,16 +103,12 @@ function setTheme(themeName) {
   localStorage.setItem("maslogTheme", themeName);
 }
 
-//opens account settings
-
 function openAccountModal() {
   if (currentUser) {
     accountEmail.textContent = currentUser.email || "No email available";
   }
   accountModalOverlay.classList.add("show");
 }
-
-//closes account settings
 
 function closeAccountModal() {
   accountModalOverlay.classList.remove("show");
@@ -137,6 +125,12 @@ function todayKey() {
   return new Date().toISOString().slice(0, 10);
 }
 
+function formatDate(dateStr) {
+  if (!dateStr) return "None yet";
+  const d = new Date(`${dateStr}T00:00:00`);
+  return d.toLocaleDateString();
+}
+
 function dayDiffFromISO(prevDateStr, newDateStr) {
   const prev = new Date(`${prevDateStr}T00:00:00`);
   const curr = new Date(`${newDateStr}T00:00:00`);
@@ -144,11 +138,13 @@ function dayDiffFromISO(prevDateStr, newDateStr) {
   return Math.round(diffMs / 86400000);
 }
 
-//rating code
-
 function renderCheckins(categories, existingDailyData = {}) {
   checkinList.innerHTML = "";
-  selectedRatings = existingDailyData.ratings ? { ...existingDailyData.ratings } : {};
+  selectedCompletion = existingDailyData.completions
+    ? { ...existingDailyData.completions }
+    : {};
+
+  lastCheckinDate.textContent = formatDate(existingDailyData.lastCheckinDate);
 
   categories.forEach((categoryKey) => {
     const wrapper = document.createElement("div");
@@ -172,67 +168,55 @@ function renderCheckins(categories, existingDailyData = {}) {
         <strong>Current streak:</strong> ${streakCount} day${streakCount === 1 ? "" : "s"}
       </div>
 
-      <div class="star-row" data-category="${categoryKey}">
-        <button class="star-btn" type="button" data-value="1">★1</button>
-        <button class="star-btn" type="button" data-value="2">★2</button>
-        <button class="star-btn" type="button" data-value="3">★3</button>
-        <button class="star-btn" type="button" data-value="4">★4</button>
-        <button class="star-btn" type="button" data-value="5">★5</button>
+      <div class="choice-row" data-category="${categoryKey}">
+        <button class="choice-btn" type="button" data-value="yes">Completed</button>
+        <button class="choice-btn" type="button" data-value="no">Not Completed</button>
       </div>
     `;
 
     checkinList.appendChild(wrapper);
   });
 
-  bindStarButtons();
-  restoreSelectedStars();
+  bindChoiceButtons();
+  restoreSelectedChoices();
 }
 
-function bindStarButtons() {
-  document.querySelectorAll(".star-row").forEach((row) => {
+function bindChoiceButtons() {
+  document.querySelectorAll(".choice-row").forEach((row) => {
     const category = row.dataset.category;
-    const buttons = row.querySelectorAll(".star-btn");
+    const buttons = row.querySelectorAll(".choice-btn");
 
     buttons.forEach((button) => {
       button.addEventListener("click", () => {
         buttons.forEach((b) => b.classList.remove("selected"));
         button.classList.add("selected");
-        selectedRatings[category] = Number(button.dataset.value);
+        selectedCompletion[category] = button.dataset.value;
       });
     });
   });
 }
 
-function restoreSelectedStars() {
-  document.querySelectorAll(".star-row").forEach((row) => {
+function restoreSelectedChoices() {
+  document.querySelectorAll(".choice-row").forEach((row) => {
     const category = row.dataset.category;
-    const rating = selectedRatings[category];
-    if (!rating) return;
+    const value = selectedCompletion[category];
+    if (!value) return;
 
-    row.querySelectorAll(".star-btn").forEach((button) => {
-      button.classList.toggle("selected", Number(button.dataset.value) === Number(rating));
+    row.querySelectorAll(".choice-btn").forEach((button) => {
+      button.classList.toggle("selected", button.dataset.value === value);
     });
   });
 }
 
-function validateRatings() {
-  return selectedCategories.every((category) => selectedRatings[category]);
+function validateCompletion() {
+  return selectedCategories.every((category) => selectedCompletion[category]);
 }
 
-function calculateUpdatedStreaks(previousStreaks = {}, previousRatings = {}, currentRatings, dateKey) {
+function calculateUpdatedStreaks(previousStreaks = {}, dateKey) {
   const nextStreaks = { ...previousStreaks };
 
   selectedCategories.forEach((category) => {
     const prevEntry = previousStreaks[category] || { count: 0, lastDate: null };
-    const currentRating = Number(currentRatings[category]);
-
-    if (currentRating < 5) {
-      nextStreaks[category] = {
-        count: 0,
-        lastDate: dateKey,
-      };
-      return;
-    }
 
     if (!prevEntry.lastDate) {
       nextStreaks[category] = {
@@ -245,10 +229,8 @@ function calculateUpdatedStreaks(previousStreaks = {}, previousRatings = {}, cur
     const diff = dayDiffFromISO(prevEntry.lastDate, dateKey);
 
     if (diff === 0) {
-      const priorTodayRating = Number(previousRatings?.[category] || 0);
-      const keepCount = priorTodayRating === 5 ? prevEntry.count : 1;
       nextStreaks[category] = {
-        count: keepCount,
+        count: prevEntry.count || 1,
         lastDate: dateKey,
       };
       return;
@@ -270,8 +252,6 @@ function calculateUpdatedStreaks(previousStreaks = {}, previousRatings = {}, cur
 
   return nextStreaks;
 }
-
-//daily streak code
 
 function buildRewardsFromStreaks(streaks) {
   const rewards = {};
@@ -354,8 +334,8 @@ saveCheckinBtn.addEventListener("click", async () => {
     return;
   }
 
-  if (!validateRatings()) {
-    checkinStatus.textContent = "Please rate your progress for every shown category.";
+  if (!validateCompletion()) {
+    checkinStatus.textContent = "Please choose completed or not completed for every shown category.";
     return;
   }
 
@@ -366,15 +346,13 @@ saveCheckinBtn.addEventListener("click", async () => {
 
   const nextStreaks = calculateUpdatedStreaks(
     previousData.streaks || {},
-    previousData.ratings || {},
-    selectedRatings,
     dateKey
   );
 
   await setDoc(dailyRef, {
     uid: currentUser.uid,
     selectedCategories,
-    ratings: selectedRatings,
+    completions: selectedCompletion,
     streaks: nextStreaks,
     lastCheckinDate: dateKey,
     updatedAt: serverTimestamp(),
