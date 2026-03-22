@@ -22,8 +22,16 @@ body {
 
 body {
   font-family: "Baloo2", sans-serif;
-}
 
+  background-image:
+    linear-gradient(rgba(255,244,248,0.78), rgba(255,244,248,0.78)),
+    url("./seamlessflowers.jpg");
+
+  background-repeat: repeat;
+  background-size: 490px 490px;
+  background-position: top left;
+  background-attachment: fixed;
+}
 .hidden {
   display: none;
 }
@@ -33,10 +41,7 @@ body {
   position: relative;
   overflow-x: hidden;
   color: var(--text-main);
-  background:
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.7), transparent 28%),
-    linear-gradient(180deg, var(--bg-main) 0%, var(--bg-main-2) 100%);
-  font-family: "Baloo2", sans-serif;
+  background: transparent;
 }
 
 /* Themes */
