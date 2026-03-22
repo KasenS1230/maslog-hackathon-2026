@@ -1,5 +1,32 @@
-*{
-  font-family: Arial, Helvetica, sans-serif;
+@font-face {
+    font-family: Baloo;
+    src: url(/fonts/Baloo2.ttf);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    /* position: relative;kground-image: url(/images/seamlessflowers.jpg); */
+
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(/images/seamlessflowers.jpg);
+    opacity: 20%;
+    background-size: cover;
+    background-position: cover;
+    width: 100%;
+    height: 2696px;
+    z-index: -1;
+}
+
+* {
+    font-family: Baloo;
 }
 
 .box1 {
@@ -12,60 +39,59 @@
     position: absolute;
     top: 0;
     left: 1000px;
-    right: 0px; 
+    right: 0px;
     bottom: 0px;
 
-    margin: 30px auto; 
+    margin: 30px auto;
 
-    width: 25px; 
-    height: 10px; 
-    background-color: rgb(255, 255, 255); 
+    width: 25px;
+    height: 10px;
+    background-color: rgb(255, 255, 255);
 
 }
 
+
 .button-container button {
-      background-color: transparent;
+    border-color: transparent;
+    padding: 10px 25px;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    background-color: #ffaa00;
+    font-family: Baloo;
+}
 
-
-      border-color: transparent;
-      padding: 10px 25px;
-      cursor: pointer;
-      border-radius: 15px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-      background-color: #ffaa00;
-    }
-
-    .button-container button:hover {
-      border-color: rgb(255, 255, 255);
-      transform: scale(1.05);
-    }
+.button-container button:hover {
+    border-color: rgb(255, 255, 255);
+    transform: scale(1.05);
+}
 
 header {
     display: flex;
-    position: fixed; 
+    position: fixed;
 
     top: 0;
     left: 0;
-    right: 0; 
+    right: 0;
     bottom: 0;
     z-index: 1000;
 
-    height: 30px; 
-    background-color: #fee4a8; 
-    padding: 20px; 
+    height: 30px;
+    background-color: #fee4a8;
+    padding: 20px;
 
-    margin: 0px auto; 
+    margin: 0px auto;
     font-weight: bold;
 }
 
-header > div {
+header>div {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-header > div:nth-child(2) {
+header>div:nth-child(2) {
     flex-grow: 1;
 }
 
@@ -73,9 +99,14 @@ header span {
     text-align: right;
 }
 
-@keyframes fadeIn{
-    from {opacity: 0;}
-    to {opacity: 1;}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 h1 {
@@ -84,23 +115,29 @@ h1 {
     animation: fadeIn 5s forwards;
 }
 
-img{
+img {
     margin-bottom: 0;
     margin-left: 0;
     animation: fadeIn 5s forwards;
 }
 
-ul{
-    font-size: 50px;
-    animation: fadeIn 5s forwards;
+.img_container {
+    text-align: center;
 }
 
-li{
+ul {
+    font-size: 50px;
+    animation: fadeIn 5s forwards;
+    font-weight: 500;
+}
+
+li {
     margin: 10px;
 }
 
 .about {
-    margin-top: 150px;
+    margin-top: 75px;
+    margin-left: 30px;
 }
 
 h2 {
@@ -108,12 +145,18 @@ h2 {
     margin: 0px;
 }
 
-p{
+.mission {
+    margin-top: 0px;
+    margin-left: 30px;
+}
+
+p {
     font-size: 50px;
     padding: 0;
     border: 0;
     margin: 0;
     left: 30px;
+    font-weight: 500;
 }
 
 h3 {
@@ -122,19 +165,19 @@ h3 {
     padding-top: 150px;
 }
 
-h4{
+h4 {
     font-size: 45px;
     margin: 0;
     padding-top: 0px;
-    
-}
-.container {
-  display: flex;
-  /* grid-template-columns: auto auto auto; */
-  padding: 10px;
+
 }
 
-.ref_container{
+.container {
+    display: flex;
+    padding: 10px;
+}
+
+.ref_container {
     position: absolute;
     text-align: center;
     background-color: #fee4a8;
@@ -144,7 +187,11 @@ h4{
     right: 0px;
 }
 
-.container > div {
+#text_container {
+    padding: 10px 70px;
+}
+
+.container>div {
     flex: 1;
 }
 
