@@ -1,35 +1,14 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import {
-  getAuth,
-  onAuthStateChanged,
-  signOut,
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBSZ2ycksOHdbPcV0vtbH-G-zk1Py_a9nk",
-  authDomain: "maslog-978e6.firebaseapp.com",
-  projectId: "maslog-978e6",
-  storageBucket: "maslog-978e6.firebasestorage.app",
-  messagingSenderId: "554404722437",
-  appId: "1:554404722437:web:9fdc761ed43eb4856ee96c",
-  measurementId: "G-NT5XMBTXZM",
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
 const goalsPage = document.getElementById("goalsPage");
 const sideMenu = document.getElementById("sideMenu");
 const openMenuBtn = document.getElementById("openMenuBtn");
 const closeMenuBtn = document.getElementById("closeMenuBtn");
 const menuOverlay = document.getElementById("menuOverlay");
+const boxSelf = document.getElementById("Box_Self");
+const boxEst = document.getElementById("Box_Esteem");
+const boxLB = document.getElementById("Box_LB");
+const boxSafe = document.getElementById("Box_Safe");
+const boxPhys = document.getElementById("Box_Phys");
 const themeButtons = document.querySelectorAll(".theme-option");
-
-const accountBtn = document.getElementById("accountBtn");
-const accountModalOverlay = document.getElementById("accountModalOverlay");
-const accountModalClose = document.getElementById("accountModalClose");
-const accountEmail = document.getElementById("accountEmail");
-const logoutBtn = document.getElementById("logoutBtn");
 
 const themeClasses = [
   "theme-blossom",
@@ -37,8 +16,6 @@ const themeClasses = [
   "theme-lavender",
   "theme-rose",
 ];
-
-let currentUser = null;
 
 function openMenu() {
   sideMenu.classList.add("open");
@@ -61,14 +38,6 @@ function setTheme(themeName) {
   localStorage.setItem("maslogTheme", themeName);
 }
 
-function openAccountModal() {
-  accountModalOverlay.classList.add("show");
-}
-
-function closeAccountModal() {
-  accountModalOverlay.classList.remove("show");
-}
-
 openMenuBtn.addEventListener("click", openMenu);
 closeMenuBtn.addEventListener("click", closeMenu);
 menuOverlay.addEventListener("click", closeMenu);
@@ -79,59 +48,57 @@ themeButtons.forEach((button) => {
   });
 });
 
-accountBtn.addEventListener("click", () => {
-  if (!currentUser) {
-    window.location.href = "accounts.html";
-    return;
-  }
-
-  accountEmail.textContent = currentUser.email || "No email available";
-  openAccountModal();
-});
-
-accountModalClose.addEventListener("click", closeAccountModal);
-
-accountModalOverlay.addEventListener("click", (event) => {
-  if (event.target === accountModalOverlay) {
-    closeAccountModal();
-  }
-});
-
-logoutBtn.addEventListener("click", async () => {
-  try {
-    await signOut(auth);
-    closeAccountModal();
-    window.location.href = "accounts.html";
-  } catch (error) {
-    console.error("Logout failed:", error);
-  }
-});
-
-const authRequiredCard =
-  document.getElementById("authRequiredCard");
-
-const goalsCard =
-  document.getElementById("goalsCard");
-
-function showOnly(card) {
-  authRequiredCard.classList.add("hidden");
-  goalsCard.classList.add("hidden");
-
-  card.classList.remove("hidden");
-}
-
-onAuthStateChanged(auth, (user) => {
-  currentUser = user || null;
-
-  if (!user) {
-    showOnly(authRequiredCard);
-    return;
-  }
-
-  showOnly(goalsCard);
-});
-
 const savedTheme = localStorage.getItem("maslogTheme");
 if (savedTheme && themeClasses.includes(`theme-${savedTheme}`)) {
   setTheme(savedTheme);
+}
+
+function toggleSelf(){
+  boxSelf.style.opacity = "1";
+  boxSelf.style.visibility = "visible";
+}
+
+function toggleCloseSelf(){
+  boxSelf.style.opacity = "0";
+  boxSelf.style.visibility = "hidden";
+}
+
+function toggleEst(){
+  boxEst.style.opacity = "1";
+  boxEst.style.visibility = "visible";
+}
+
+function toggleCloseEst(){
+  boxEst.style.opacity = "0";
+  boxEst.style.visibility = "hidden";
+}
+
+function toggleLB(){
+  boxLB.style.opacity = "1";
+  boxLB.style.visibility = "visible";
+}
+
+function toggleCloseLB(){
+  boxLB.style.opacity = "0";
+  boxLB.style.visibility = "hidden";
+}
+
+function toggleSafe(){
+  boxSafe.style.opacity = "1";
+  boxSafe.style.visibility = "visible";
+}
+
+function toggleCloseSafe(){
+  boxSafe.style.opacity = "0";
+  boxSafe.style.visibility = "hidden";
+}
+
+function togglePhys(){
+  boxPhys.style.opacity = "1";
+  boxPhys.style.visibility = "visible";
+}
+
+function toggleClosePhys(){
+  boxPhys.style.opacity = "0";
+  boxPhys.style.visibility = "hidden";
 }
