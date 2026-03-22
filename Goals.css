@@ -369,3 +369,9 @@ body {
   .layer-4 { width: 82%; }
   .layer-5 { width: 96%; }
 }
+
+[class^="box_layer"]{
+  opacity: 0;
+  visibility: hidden;
+  transition: ease-in;
+}
