@@ -1,4 +1,4 @@
-# [Maslow] : [Team 2]
+# [Maslog] : [Team 2]
 # Members
 Project Manager: [Kasen] ([KasenS1230]) <br>
 Frontend Lead: [Gavin] ([GavinCouch]) <br>
