@@ -31,9 +31,9 @@
           		<a class="nav-link" href="advice.html">Advice</a>
           	</div>
         </div>
-        <div class="account-section">
-        	<a class="nav-link account-link" href="account.html">Account</a>
-        </div>
+		<div class="account-section">
+  			<button class="nav-link account-link" id="accountBtn" type="button">Account</button>
+		</div>
     </aside>
     <div class="menu-overlay" id="menuOverlay"></div>
     <header class="top-bar">
@@ -48,8 +48,20 @@
     <main class="goals-content">
     	<div class="flower-decor flower-left">🌸</div>
     	<div class="flower-decor flower-right">🌼</div>
-    	
-    	<section class="pyramid-card">
+    	<section class="pyramid-card hidden" id="authRequiredCard">
+  			<h2 class="triangle-title">Login Required</h2>
+
+  			<p style="text-align:center; margin-top:12px;">
+    			You must be logged in to view your goals.
+  			</p>
+
+			<div class="auth-login-wrapper">
+  				<a class="auth-login-btn" href="accounts.html">
+    				Login or Create Account
+  				</a>
+			</div>
+		</section>
+    	<section class="pyramid-card hidden" id="goalsCard">
     		<h2 class="triangle-title">Maslow Goal Pyramid</h2>
     		<div class="pyramid-shell">
     			<button class="triangle-layer layer-1" type="button">Self-Actualization</button>
@@ -61,7 +73,26 @@
           </section>
         </main>
     </div>
-    
-    	<script src="goals.js"></script>
+    <div class="account-modal-overlay" id="accountModalOverlay">
+  		<div class="account-modal">
+    		<div class="account-modal-header">
+      			<h3 class="account-modal-title">Your Account</h3>
+      			<button class="account-modal-close" id="accountModalClose" type="button">×</button>
+    		</div>
+
+    		<p class="account-email-label">Signed in as</p>
+    		<p class="account-email" id="accountEmail">Loading...</p>
+
+    		<div class="account-modal-actions">
+      		<button class="account-action-btn secondary-account-btn" id="logoutBtn" type="button">
+        		Logout
+      		</button>
+      		<a class="account-action-btn primary-account-btn" href="goals.html">
+        		View Goals
+      		</a>
+    	</div>
+  	</div>
+</div>
+    	<script type="module" src="goals.js"></script>
     </body>
 </html>

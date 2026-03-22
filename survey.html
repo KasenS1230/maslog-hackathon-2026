@@ -1,79 +1,274 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Survey</title>
-        <link rel="stylesheet" href="survey_styles.css">
-    </head>
-    <body>
-        <div class="container mt-5 mb-5" style="max-width: 650px;">
-            <h1>Survey</h1>
-            <p>Please answer the questions below:</p>
-            <form>
-                <!-- Q1 -->
-                <div>
-                    <label for="q1" class="form-label">
-                        You make it a point to have consistent, healthy eating routines. 
-                        <input type="range" class="form-range" id="q1" name="q1" min="1" max="5" value="3"
-                        oninput="document.getElementById('q1Value').textContent = this.value">
-                        <div class="d-flex justify-content-between text-muted" style="font-size: 12px;">
-                        <span>Strongly Disagree</span>
-                        <span>Strongly Agree</span>
-                    </div>
-                </div>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  	<title>MASLOG Survey</title>
+	<link rel="stylesheet" href="survey.css" />
+</head>
+<body>
+	<div class="survey-page theme-blossom" id="surveyPage">
+		<aside class="side-menu" id="sideMenu">
+			<div class="side-menu-header">
+				<h2 class="menu-title">Menu</h2>
+        		<button class="close-btn" id="closeMenuBtn" type="button">×</button>
+      		</div>
 
-                <!-- Q2 -->
-                <div>
-                    <label for="q2" class="form-label">How easy was it to navigate our website?
-                    <input type="range" class="form-range" id="q2" name="q2" min="1" max="5" value="3"
-                        oninput="document.getElementById('q2Value').textContent = this.value">
-                        <div class="d-flex justify-content-between text-muted" style="font-size: 12px;">
-                        <span>Strongly Disagree</span>
-                        <span>Strongly Agree</span>
-                    </div>
-                </div>
+			<div class="side-section">
+				<h3 class="section-title">Themes</h3>
+        		<div class="theme-list">
+          			<button class="theme-option active" type="button" data-theme="blossom">Blossom</button>
+          			<button class="theme-option" type="button" data-theme="sunflower">Sunflower</button>
+          			<button class="theme-option" type="button" data-theme="lavender">Lavender</button>
+          			<button class="theme-option" type="button" data-theme="rose">Rose</button>
+        		</div>
+      		</div>
 
-                <!-- Q3 -->
-                <div>
-                    <label for="q3" class="form-label">
-                        How would you rate the quality of our customer support?
-                        <input type="range" class="form-range" id="q3" name="q3" min="1" max="5" value="3"
-                        oninput="document.getElementById('q3Value').textContent = this.value">
-                        <div class="d-flex justify-content-between text-muted" style="font-size: 12px;">
-                        <span>Strongly Disagree</span>
-                        <span>Strongly Agree</span>
-                    </div>
-                </div>
+      		<div class="side-section">
+        		<h3 class="section-title">Pages</h3>
+        		<div class="page-list">
+          			<a class="nav-link" href="index.html">Home</a>
+          			<a class="nav-link" href="evaluation.html">Check-In</a>
+          			<a class="nav-link active-link" href="survey.html">Survey</a>
+          			<a class="nav-link" href="advice.html">Advice</a>
+        		</div>
+     		</div>
 
-                <!-- Q4 -->
-                <div>
-                    <label for="q4" class="form-label">
-                        How likely are you to recommend us to a friend?
-                        <input type="range" class="form-range" id="q4" name="q4" min="1" max="5" value="3"
-                        oninput="document.getElementById('q4Value').textContent = this.value">
-                        <div class="d-flex justify-content-between text-muted" style="font-size: 12px;">
-                        <span>Strongly Disagree</span>
-                        <span>Strongly Agree</span>
-                    </div>
-                </div>
+      		<div class="account-section">
+       			<button class="nav-link account-link" id="accountBtn" type="button">
+  					Account
+				</button>
+      		</div>
+    	</aside>
 
-                <!-- Q5 -->
-                <div>
-                    <label for="q5" class="form-label">How well did our product meet your expectations? 
-                    <input type="range" class="form-range" id="q5" name="q5" min="1" max="5" value="3"
-                        oninput="document.getElementById('q5Value').textContent = this.value">
-                        <div class="d-flex justify-content-between text-muted" style="font-size: 12px;">
-                        <span>Strongly Disagree</span>
-                        <span>Strongly Agree</span>
-                    </div>
-                </div>
+    	<div class="menu-overlay" id="menuOverlay"></div>
 
-                <div class = "cont_buttons">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <a href="index.html" class="btn btn-secondary">Back to Home</a>
-                </div>
-            </form>
+    	<header class="top-bar">
+      		<button class="hamburger-btn" id="openMenuBtn" type="button">☰</button>
+
+      		<div class="title-wrapper">
+        		<div class="title-box">🌸 MASLOG 🌼</div>
+      		</div>
+
+      		<div></div>
+    	</header>
+
+		<main class="survey-content">
+      		<div class="flower-decor flower-left">🌸</div>
+      		<div class="flower-decor flower-right">🌼</div>
+
+      		<section class="survey-card" id="authRequiredCard">
+       			<h1 class="survey-title">Survey Access</h1>
+        		<p class="survey-subtitle">
+          			You need an account to take the MASLOG survey.
+        		</p>
+        		<div class="action-stack">
+          			<a class="primary-link-btn" href="accounts.html">Create or Log Into Account</a>
+        		</div>
+      		</section>
+
+      		<section class="survey-card hidden" id="existingSurveyCard">
+        		<h1 class="survey-title">Survey Already Completed</h1>
+        		<p class="survey-subtitle">
+          			You already completed your survey on this account. You can continue to advice or retake the survey and replace your answers.
+        		</p>
+        		<div class="action-row">
+          			<button class="secondary-btn" id="retakeBtn" type="button">Retake</button>
+          			<button class="primary-btn" id="continueBtn" type="button">Continue</button>
+        		</div>
+      		</section>
+
+      		<section class="survey-card hidden" id="surveyFormCard">
+        		<h1 class="survey-title">Well-Being Survey</h1>
+        		<p class="survey-subtitle">
+          			Choose how each area has felt recently.
+        		</p>
+
+        		<form id="surveyForm">
+          			<div class="category-block">
+            			<h2>Category 1 — Physiological Well-Being</h2>
+
+            			<div class="question-card">
+              				<p>1. How have your eating habits felt recently?</p>
+              				<div class="emoji-scale" data-question="phys_q1">
+                				<button type="button" class="emoji-btn" data-value="1">👎</button>
+                				<button type="button" class="emoji-btn" data-value="2">😐</button>
+                				<button type="button" class="emoji-btn" data-value="3">👍</button>
+              				</div>
+            			</div>
+
+            			<div class="question-card">
+              				<p>2. How would you describe your sleep over the past few days?</p>
+              				<div class="emoji-scale" data-question="phys_q2">
+                				<button type="button" class="emoji-btn" data-value="1">👎</button>
+                				<button type="button" class="emoji-btn" data-value="2">😐</button>
+                				<button type="button" class="emoji-btn" data-value="3">👍</button>
+              				</div>
+            			</div>
+
+            		<div class="question-card">
+              		<p>3. How has your physical energy felt lately?</p>
+              		<div class="emoji-scale" data-question="phys_q3">
+                		<button type="button" class="emoji-btn" data-value="1">👎</button>
+                		<button type="button" class="emoji-btn" data-value="2">😐</button>
+                		<button type="button" class="emoji-btn" data-value="3">👍</button>
+              		</div>
+            	</div>
+          	</div>
+
+        	<div class="category-block">
+            	<h2>Category 2 — Safety &amp; Stability</h2>
+
+            	<div class="question-card">
+              		<p>1. How stable and predictable has your daily routine felt recently?</p>
+              		<div class="emoji-scale" data-question="safety_q1">
+                		<button type="button" class="emoji-btn" data-value="1">👎</button>
+                		<button type="button" class="emoji-btn" data-value="2">😐</button>
+                		<button type="button" class="emoji-btn" data-value="3">👍</button>
+              		</div>
+            	</div>
+
+            	<div class="question-card">
+              		<p>2. How safe and comfortable do you feel in your current environment?</p>
+              		<div class="emoji-scale" data-question="safety_q2">
+                		<button type="button" class="emoji-btn" data-value="1">👎</button>
+                		<button type="button" class="emoji-btn" data-value="2">😐</button>
+                		<button type="button" class="emoji-btn" data-value="3">👍</button>
+              		</div>
+            	</div>
+
+            	<div class="question-card">
+            		<p>3. How manageable have your responsibilities or stress levels felt?</p>
+              		<div class="emoji-scale" data-question="safety_q3">
+                		<button type="button" class="emoji-btn" data-value="1">👎</button>
+                		<button type="button" class="emoji-btn" data-value="2">😐</button>
+                		<button type="button" class="emoji-btn" data-value="3">👍</button>
+              		</div>
+        		</div>
+			</div>
+
+    		<div class="category-block">
+				<h2>Category 3 — Social Connection &amp; Belonging</h2>
+
+            	<div class="question-card">
+              		<p>1. How connected have you felt to the people around you?</p>
+              		<div class="emoji-scale" data-question="social_q1">
+                		<button type="button" class="emoji-btn" data-value="1">👎</button>
+                		<button type="button" class="emoji-btn" data-value="2">😐</button>
+                		<button type="button" class="emoji-btn" data-value="3">👍</button>
+              		</div>
+            	</div>
+
+            	<div class="question-card">
+              		<p>2. How comfortable have you felt reaching out to others when needed?</p>
+              		<div class="emoji-scale" data-question="social_q2">
+                		<button type="button" class="emoji-btn" data-value="1">👎</button>
+                		<button type="button" class="emoji-btn" data-value="2">😐</button>
+                		<button type="button" class="emoji-btn" data-value="3">👍</button>
+              		</div>
+            	</div>
+
+        		<div class="question-card">
+              		<p>3. How satisfied have you felt with your current social interactions?</p>
+              		<div class="emoji-scale" data-question="social_q3">
+                		<button type="button" class="emoji-btn" data-value="1">👎</button>
+                		<button type="button" class="emoji-btn" data-value="2">😐</button>
+                		<button type="button" class="emoji-btn" data-value="3">👍</button>
+              		</div>
+            	</div>
+          	</div>
+
+          <div class="category-block">
+            <h2>Category 4 — Esteem &amp; Confidence</h2>
+
+            <div class="question-card">
+            	<p>1. How confident have you felt in your ability to handle daily challenges?</p>
+              	<div class="emoji-scale" data-question="esteem_q1">
+                	<button type="button" class="emoji-btn" data-value="1">👎</button>
+                	<button type="button" class="emoji-btn" data-value="2">😐</button>
+                	<button type="button" class="emoji-btn" data-value="3">👍</button>
+              	</div>
+            </div>
+
+            <div class="question-card">
+              	<p>2. How proud have you felt of your recent efforts or accomplishments?</p>
+              	<div class="emoji-scale" data-question="esteem_q2">
+                	<button type="button" class="emoji-btn" data-value="1">👎</button>
+                	<button type="button" class="emoji-btn" data-value="2">😐</button>
+                	<button type="button" class="emoji-btn" data-value="3">👍</button>
+              	</div>
+            </div>
+
+            <div class="question-card">
+              	<p>3. How motivated have you felt to work toward your goals?</p>
+              	<div class="emoji-scale" data-question="esteem_q3">
+                	<button type="button" class="emoji-btn" data-value="1">👎</button>
+                	<button type="button" class="emoji-btn" data-value="2">😐</button>
+                	<button type="button" class="emoji-btn" data-value="3">👍</button>
+              	</div>
+            </div>
+		</div>
+
+        <div class="submit-wrap">
+        	<button class="primary-btn" id="submitSurveyBtn" type="submit">Submit Survey</button>
         </div>
-    </body>
+        </form>
+
+        <p class="status-message" id="surveyStatus"></p>
+	</section>
+
+    <section class="survey-card hidden" id="surveyCompleteCard">
+    	<h1 class="survey-title">Survey Complete 🎉</h1>
+        <p class="survey-subtitle">
+        	Congratulations on finishing your survey. Your responses have been saved to your account.
+        </p>
+        <div class="action-row">
+        	<a class="primary-link-btn" href="advice.html">Go to Advice</a>
+        </div>
+	</section>
+</main>
+</div>
+<div class="account-modal-overlay" id="accountModalOverlay">
+	<div class="account-modal">
+    <div class="account-modal-header">
+      	<h3 class="account-modal-title">
+        	Your Account
+      	</h3>
+      	<button
+        	class="account-modal-close"
+        	id="accountModalClose"
+        	type="button"
+      	>
+        	×
+      	</button>
+    	</div>
+    	<p class="account-email-label">
+      		Signed in as
+    	</p>
+    	<p
+      		class="account-email"
+      		id="accountEmail"
+    	>
+      		Loading...
+    	</p>
+    	<div class="account-modal-actions">
+      		<button
+        		class="account-action-btn secondary-account-btn"
+        		id="logoutBtn"
+        		type="button"
+      		>
+        		Logout
+      		</button>
+			<a
+  				class="account-action-btn primary-account-btn"
+  				id="viewGoalsBtn"
+  				href="goals.html"
+			>
+  				View Goals
+			</a>
+		</div>
+	</div>
+</div>
+	<script type="module" src="survey.js"></script>
+</body>
 </html>
