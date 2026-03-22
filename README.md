@@ -7,7 +7,7 @@ Design Lead: [Shaunak] ([shaunakhanumante])
 
 # About Our Software
 
-Using Maslow's Hierarchy, our goal is to utilize data analysis to build habits through repeated check-ups and personalized advice in order to help people become a better version of themselves.
+Using American psychologist Maslow's Hierarchy of Needs, our goal is to utilize data analysis to build habits through repeated check-ups and personalized advice in order to help people become a better version of themselves.
 
 ## Platforms Tested on
 - MacOS
@@ -18,7 +18,7 @@ Using Maslow's Hierarchy, our goal is to utilize data analysis to build habits t
 - https://scholarlypublishingcollective.org/uip/ajp/article-abstract/126/2/155/258006/Maslow-and-the-Motivation-Hierarchy-Measuring
 
 # How to Run Dev and Test Environment
-Open this website!
+Open this website! <br>
 https://maslog-978e6.web.app/
 
 ## Dependencies
@@ -28,7 +28,7 @@ https://maslog-978e6.web.app/
 - Firebase-tools
 
 ### Downloading Dependencies
-- Run npm firebase install to begin installation. 
+- Run npm firebase install to begin installation. <br>
 **Note**: Will not need firebase to view project
 
 ## Commands
@@ -37,4 +37,4 @@ Describe how the commands and process to launch the project on the main branch i
 ```sh
 firebase deploy
 ```
-*New code should be automatically impacted
+**Note**: New code should be automatically impacted.
